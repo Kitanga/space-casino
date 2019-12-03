@@ -9,6 +9,9 @@ import Button from './Components/Button';
 import Text from './Components/Text';
 import Card from './Components/Card';
 
+// Utilities
+import { CheckAudio } from './utils';
+
 export default class GameOver extends Scene {
     constructor() {
         super({
@@ -17,15 +20,24 @@ export default class GameOver extends Scene {
     }
 
     create() {
-        console.log('Game Over');
+        console.log('Start!');
+
+        const audioMuted = CheckAudio(this);
+
+        // Play audio
+        this.sound.add('mus_play').play({
+            volume: .7
+        });
 
         const {
             centerX,
             centerY,
             width,
-            height
+            height,
+            displayWidth
         } = this.cameras.main;
 
+        // Create the background
         this.bg = CreateBg(this);
 
         // Current score
@@ -35,12 +47,19 @@ export default class GameOver extends Scene {
         this.score = Text(this, centerX, height * .25, `Points\n${this.currentScore}`);
 
         // Show cards
-        const TOTAL_CARDS = 3;
+        const TOTAL_CARDS = 5;
         this.cards = new Array(TOTAL_CARDS);
 
+        // Cards' scale
+        const SCALE = .34;
+        // A quarter the width of a card
+        const OFFSET = (this.textures.get('back').getSourceImage().width * SCALE) / 2;
+
+        console.log("The offset we'll apply to the elements:", OFFSET);
+
         for (let index = 0; index < TOTAL_CARDS; index++) {
-            let x = (width / TOTAL_CARDS) * (index + 1);
-            this.cards[index] = Card(this, x, centerY);
+            let x = ((width - OFFSET) / TOTAL_CARDS) * (index + .5);
+            this.cards[index] = Card(this, x + OFFSET, centerY);
         }
 
         // Betting amount

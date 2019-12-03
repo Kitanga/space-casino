@@ -19,10 +19,9 @@ const game = new Phaser.Game({
     Play,
     GameOver
   ],
+  debug: true,
   scale: {
     mode: Phaser.Scale.FIT,
-    // width: window.innerWidth * window.devicePixelRatio,
-    // height: window.innerHeight * window.devicePixelRatio,
     zoom: window.devicePixelRatio
-  },
+  }
 });

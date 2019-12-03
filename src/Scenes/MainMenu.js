@@ -3,6 +3,9 @@ import Button from './Components/Button';
 import CreateBg from './Components/CreateBg';
 import GetHighscore from './Components/GetHighscore';
 
+// Utilities
+import { CheckAudio } from './utils';
+
 export default class MainMenu extends Phaser.Scene {
     constructor() {
         super({
@@ -13,15 +16,7 @@ export default class MainMenu extends Phaser.Scene {
     create() {
         console.log('Main Menu', this.data);
 
-        // Set the sound mute/unmute prop to whatever the user set the last time
-        const audioMuted = JSON.parse(localStorage.getItem('muted'));
-
-        console.log("Audio is:", audioMuted ? "muted" : "unmuted");
-        console.log(audioMuted, typeof audioMuted);
-
-        if (typeof audioMuted === 'boolean') {
-            this.sound.setMute(audioMuted);
-        }
+        const audioMuted = CheckAudio(this);
 
         let {
             centerX,

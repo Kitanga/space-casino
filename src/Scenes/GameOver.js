@@ -8,6 +8,9 @@ import GetHighscore from './Components/GetHighscore';
 import Button from './Components/Button';
 import Text from './Components/Text';
 
+// Utilities
+import { CheckAudio } from './utils';
+
 export default class GameOver extends Scene {
     constructor() {
         super({
@@ -30,6 +33,8 @@ export default class GameOver extends Scene {
 
     create() {
         console.log('Game Over');
+
+        const audioMuted = CheckAudio(this);
 
         // Play audio
         this.sound.add('mus_play').play();
