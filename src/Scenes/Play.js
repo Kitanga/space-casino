@@ -58,15 +58,15 @@ export default class GameOver extends Scene {
         console.log("The offset we'll apply to the elements:", OFFSET);
 
         for (let index = 0; index < TOTAL_CARDS; index++) {
-            let x = ((width - OFFSET) / TOTAL_CARDS) * (index + .5);
-            this.cards[index] = Card(this, x + OFFSET, centerY);
+            let x = ((width - OFFSET) / TOTAL_CARDS) * (index + .375) + OFFSET;
+            this.cards[index] = Card(this, x, centerY);
         }
 
         // Betting amount
         this.bet = 10;
         this.reduceBetBtn = Button(this, width * .34, height * .75, 'arrowLeft', this.reduceBet);
         this.betText = Text(this, centerX, height * .75, this.bet);
-        this.increaseBetBtn = Button(this, width * .7, height * .75, 'arrowRight', this.increaseBet);
+        this.increaseBetBtn = Button(this, width * .75, height * .75, 'arrowRight', this.increaseBet);
     }
     reduceBet() {
         // c
