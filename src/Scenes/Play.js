@@ -66,7 +66,7 @@ export default class GameOver extends Scene {
         this.bet = 10;
         this.reduceBetBtn = Button(this, width * .34, height * .75, 'arrowLeft', this.reduceBet);
         this.betText = Text(this, centerX, height * .75, this.bet);
-        this.increaseBetBtn = Button(this, width * .75, height * .75, 'arrowRight', this.increaseBet);
+        this.increaseBetBtn = Button(this, width * .7, height * .75, 'arrowRight', this.increaseBet);
 
         // How much we can increase or decrease bet by
         this.betReduction = 10;

@@ -16,5 +16,5 @@ export default function Text(scene, x, y, text, options = {
     const textObj = scene.add.text(x, y, text, options);
     textObj.setOrigin(0.5);
 
-    return text;
+    return textObj;
 }
