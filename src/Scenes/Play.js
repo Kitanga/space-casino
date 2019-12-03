@@ -35,11 +35,11 @@ export default class GameOver extends Scene {
         this.score = Text(this, centerX, height * .25, `Points\n${this.currentScore}`);
 
         // Show cards
-        const TOTAL_CARDS = 5;
+        const TOTAL_CARDS = 3;
         this.cards = new Array(TOTAL_CARDS);
 
         for (let index = 0; index < TOTAL_CARDS; index++) {
-            let x = (width / TOTAL_CARDS) * (index);
+            let x = (width / TOTAL_CARDS) * (index + 1);
             this.cards[index] = Card(this, x, centerY);
         }
 
