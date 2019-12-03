@@ -57,15 +57,8 @@ export default class GameOver extends Scene {
 
         console.log("The offset we'll apply to the elements:", OFFSET);
 
-        const debug = this.add.graphics();
-        debug.fillStyle(0xffff00);
         for (let index = 0; index < TOTAL_CARDS; index++) {
             let x = ((width - OFFSET) / TOTAL_CARDS) * (index + .375) + OFFSET;
-            debug.beginPath();
-            debug.moveTo(x, 0);
-            debug.lineTo(x, height);
-            debug.stroke();
-            debug.closePath();
             this.cards[index] = Card(this, x, centerY);
         }
 

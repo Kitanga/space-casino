@@ -19,7 +19,7 @@ export default function Card(scene, x, y, callback) {
     card.setOrigin(.5);
     card.setScale(SCALE);
     card.flipToSide = () => {
-        scene.tweens.timeline().add({
+        scene.tweens.createTimeline().add({
             targets: card,
             scaleX: 0,
             duration: 125,
@@ -33,20 +33,7 @@ export default function Card(scene, x, y, callback) {
             targets: card,
             scaleX: -SCALE,
             duration: 125
-        })/* .add({
-            targets: card,
-            duration: 250,
-            offset: 2000,
-            scaleX: 0,
-            onComplete: () => {
-                // Get the card we'll render
-                card.setTexture('back');
-            }
-        }).add({
-            targets: card,
-            duration: 250,
-            scaleX: SCALE
-        }) */.play();
+        }).play();
     };
     card.setInteractive();
 
