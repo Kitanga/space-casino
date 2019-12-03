@@ -5,7 +5,7 @@
  * @param {number} y Y position
  * @param {string} text The text we are showing
  * @param {*} options 
- * @returns Phaser.GameObjects.Text
+ * @returns {Phaser.GameObjects.Text}
  */
 export default function Text(scene, x, y, text, options = {
     fontSize: '43px',
