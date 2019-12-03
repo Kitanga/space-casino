@@ -39,8 +39,8 @@ export default class GameOver extends Scene {
         this.cards = new Array(TOTAL_CARDS);
 
         for (let index = 0; index < TOTAL_CARDS; index++) {
-            let x = width / TOTAL_CARDS * (index + 1);
-            this.cards[index] = Card(this, x / 2, centerY);
+            let x = (width / TOTAL_CARDS) * (index);
+            this.cards[index] = Card(this, x, centerY);
         }
 
         // Betting amount
